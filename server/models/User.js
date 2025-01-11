@@ -17,11 +17,16 @@ const schema = new mongoose.Schema(
     },
     role: {
       type: String,
+      enum: ["user", "admin", "teacher"],
       default: "user",
     },
     mainrole: {
       type: String,
       default: "user",
+    },
+    isVerified: {
+      type: Boolean,
+      default: "false",
     },
     subscription: [
       {

@@ -20,6 +20,7 @@ export const register = TryCatch(async (req, res) => {
     name,
     email,
     password: hashPassword,
+    isVerified: false,
   };
   const otp = Math.floor(Math.random() * 1000000);
 
@@ -57,7 +58,7 @@ export const verifyUser = TryCatch(async (req, res) => {
       message: "Otp Expired",
     });
 
-  if (verify.otp !== otp)
+  if (toString(verify.otp) !== toString(otp))
     return res.status(400).json({
       message: "Wrong Otp",
     });

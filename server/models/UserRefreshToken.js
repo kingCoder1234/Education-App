@@ -7,7 +7,6 @@ const userRefreshTokenSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now, expires: "5d" },
 });
 
-// Model
 const UserRefreshTokenModel = mongoose.model(
   "UserRefreshToken",
   userRefreshTokenSchema
